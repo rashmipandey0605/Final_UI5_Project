@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" 
+   xmlns:f="sap.ui.layout.form">
+   <Dialog title="Enter Product Details">
+    <f:SimpleForm>
+    <Label text ="Product ID"/>
+    <Input value="{ProductModel>/ID}"/>
+    <Label text ="Product Name"/>
+    <Input value="{ProductModel>/Name}"/>
+    <Label text ="Price"/>
+    <Input value="{ProductModel>/Price}"/>
+    <Label text ="Rating"/>
+    <Input value="{ProductModel>/Rating}"/>
+      </f:SimpleForm>
+      <buttons>
+      <Button text="Save" press="onProdSave"/>
+      <Button text="Close" press="_onProdDialogClose"/>
+      </buttons>
+
+   </Dialog>
+</core:FragmentDefinition>

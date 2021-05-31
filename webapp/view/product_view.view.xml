@@ -1,0 +1,40 @@
+<mvc:View
+    controllerName="finalproject.controller.product_view"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.comp.smarttable"
+    xmlns:filter="sap.ui.comp.smartfilterbar"
+
+>
+<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                    <filter:SmartFilterBar id="smartfilter" entitySet="Products" showClearOnFB="true"
+                    persistencyKey="Idpersket" considerSelectionVariants="true" >
+                    <filter:controlConfiguration>
+                    <filter:ControlConfiguration key="ID" visibleInAdvancedArea="true"/>
+                     <filter:ControlConfiguration key="Name" visibleInAdvancedArea="true"/>
+                     </filter:controlConfiguration>
+                     </filter:SmartFilterBar>
+                    <table:SmartTable id="smartTable" entitySet="Products" smartFilterId="smartfilter" showFullScreenButton="true"
+                    enableAutoBinding="true" initiallyVisibleFields="ID,Name,Price,Rating,Description"
+                    beforeRebindTable="OnBeforeRebindTable" editable="true" enableAutoColumnWidth="true">
+                    <table:customToolbar>
+                    <Toolbar >
+                    <ToolbarSpacer />
+                    <Button text ="Update" press="_onUpdate"></Button>
+                      <Button text ="Delete" press="_onDeleteProd"></Button>
+                       <!-- <Button text ="Create Product" press="_onAddProd"></Button>-->
+                    </Toolbar>
+                    </table:customToolbar>
+                    </table:SmartTable>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+	
+</mvc:View>

@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" 
+   xmlns:f="sap.ui.layout.form">
+   <Dialog title="Create Category">
+    <f:SimpleForm>
+    <Label text ="Category ID"/>
+    <Input value="{CategoryModel>/ID}"/>
+    <Label text ="Category Name"/>
+    <Input value="{CategoryModel>/Name}" />
+      </f:SimpleForm>
+      <Label class="sapUiSmallMarginBegin" text="Products"/>
+      <List items="{CategoryModel>/Products/}">
+      <ObjectListItem title="{CategoryModel>ID}({CategoryModel>Name})" number="{CategoryModel>Price}" 
+      numberUnit="{CategoryModel>Rating}">
+      </ObjectListItem>
+      </List>
+      <buttons>
+      <Button text="Add Product" press="onAddProduct"/>
+      <Button text="Save" press="onCatSave"/>
+      <Button text="Close" press="_onDialogClose"/>
+      </buttons>
+
+   </Dialog>
+</core:FragmentDefinition>

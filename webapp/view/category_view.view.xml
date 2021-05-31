@@ -1,0 +1,51 @@
+<mvc:View
+    controllerName="finalproject.controller.category_view"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.comp.smarttable"
+    xmlns:filter="sap.ui.comp.smartfilterbar"
+    xmlns:t="sap.ui.table"
+
+>
+<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                    <filter:SmartFilterBar id="smartfilter" entitySet="Categories" showClearOnFB="true"
+                    persistencyKey="Idpersket" considerSelectionVariants="true" >
+                    <filter:controlConfiguration>
+                    <filter:ControlConfiguration key="ID" visibleInAdvancedArea="true"/>
+                     <filter:ControlConfiguration key="Name" visibleInAdvancedArea="true"/>
+                     </filter:controlConfiguration>
+                     </filter:SmartFilterBar>
+                    <table:SmartTable id="smartTable" entitySet="Categories" smartFilterId="smartfilter" showFullScreenButton="true"
+                    enableAutoBinding="true" initiallyVisibleFields="ID,Name,Price,Rating,Description"
+                    enableAutoColumnWidth="true">
+                    
+                    <table:customToolbar>
+                    <Toolbar >
+                    <ToolbarSpacer />
+                      <Button text ="Products" press="_onProducts"></Button>
+                       <Button text ="Create" press="_onCreate"></Button>
+                       <Button text ="Delete" press="_onDeleteCat"></Button>
+                    </Toolbar>
+                    </table:customToolbar>
+                    <t:Table rowActionCount="1">
+                    <t:rowActionTemplate>
+                    <t:RowAction> 
+                    <t:RowActionItem icon="sap-icon://navigation-right-arrow" press="_onRowNavigate"/>
+                    </t:RowAction>
+                    </t:rowActionTemplate>                    
+
+                    </t:Table>
+
+                    </table:SmartTable>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+	
+</mvc:View>
